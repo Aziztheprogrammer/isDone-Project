@@ -1,0 +1,27 @@
+/* Start Global Rules */
+* {
+	box-sizing: border-box;
+	margin: 0px;
+	padding: 0px;
+}
+
+*:focus {
+	outline: none;	
+}
+
+html {
+	scroll-behavior: smooth;
+}
+
+body {
+	font-family: "Hammersmith One", sans-serif;
+}
+
+:root {
+/*Colors*/
+    --main-color: #2A9963;
+    --second-color: #C8E4D6;
+/*Transition*/
+	--transition-delay: 0.4s;
+}
+/*End Global Rules*/
