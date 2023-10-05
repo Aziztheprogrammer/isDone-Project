@@ -15,12 +15,12 @@ html {
 
 body {
 	font-family: "Hammersmith One", sans-serif;
-	background-color: #f2f2f2;
 }
 
 :root {
     --main-color: #2A9963;
     --second-color: #C8E4D6;
+    --dark: #1b2538;
 	--transition-delay: 0.4s;
 }
 
@@ -33,6 +33,14 @@ body {
 	.container {
 		padding: 0px 40px;
 	}
+}
+
+::-webkit-scrollbar {
+	width: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--main-color);
 }
 
 /*End Global Rules*/
@@ -80,3 +88,51 @@ header nav ul li a:hover {
 	color: var(--main-color);
 }
 /*End The Header*/
+
+/*Start The Landing*/
+section.landing {
+	min-height: calc(100vh - 120px);
+}
+
+section.landing .container {
+	transform: translateY(-15%);
+}
+
+@media (max-width: 769px) {
+	section.landing .container {
+		gap: 50px;
+		flex-wrap: wrap;
+		flex-direction: column-reverse;
+		align-items: center;
+		transform: translateY(0%);
+	}
+
+	section.landing .container .text {
+		text-align: center;
+	}
+
+	section.landing img {
+		max-width: 100% !important;
+		height: auto;
+	}
+}
+
+section.landing .container .text {
+	max-width: 500px;
+	min-width: 300px;
+}
+
+section.landing .container .text h1 span {
+	color: var(--main-color);
+}
+
+section.landing .container .text a {
+	color: var(--main-color);
+	border-bottom: 2px solid var(--main-color);
+}
+
+section.landing img {
+	max-width: 500px;
+	min-width: 200px;
+}
+/*End The Landing*/
