@@ -15,6 +15,7 @@ html {
 
 body {
 	font-family: "Hammersmith One", sans-serif;
+	z-index: -1;
 }
 
 :root {
@@ -47,36 +48,37 @@ body {
 
 /*Start The Header*/
 @media (max-width: 769px) {
-	header nav i {
+	header nav #menu-icon {
 		display: block !important;
 		font-size: 1.5rem;
 		cursor: pointer;
 	}
 
-	header nav i:hover + ul {
-		display: flex;
-	}
-
 	header nav .links {
 		display: none;
-		gap: 0px;
 		position: absolute;
 		background-color: white;
+		font-size: 1.5rem;
     	width: 100%;
+    	height: 100vh;
     	top: 0px;
     	left: 0px;
    	 	flex-direction: column;
-   	 	align-items: stretch;
+   	 	align-items: center;
+   	 	justify-content: center;
+   	 	gap: 30px;
     	padding: 20px;
+    	z-index: 1;
 	}
 
-	header nav ul li {
-		padding: 20px 0px;
-		border-bottom: 1px solid #000;
-	}
-
-	header nav ul li:last-child {
-		border-bottom: none;
+	header nav #close-menu-icon {
+		color: red;
+		position: absolute;
+		top: 40px;
+		right: 40px;
+		font-size: 1.5rem;
+		z-index: 2;
+		cursor: pointer;
 	}
 }
 
@@ -114,6 +116,12 @@ section.landing .container {
 	section.landing img {
 		max-width: 100% !important;
 		height: auto;
+	}
+}
+
+@media (max-width: 420px) {
+	section.landing .container {
+		transform: translateY(-50px);
 	}
 }
 
