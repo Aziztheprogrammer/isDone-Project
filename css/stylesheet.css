@@ -26,8 +26,8 @@ body {
 }
 
 .container {
-	margin: auto;
 	padding: 0px 20px;
+	margin: auto;
 }
 
 @media (max-width: 992px) {
@@ -47,6 +47,10 @@ body {
 /*End Global Rules*/
 
 /*Start The Header*/
+header img {
+	padding: 30px 0px;
+}
+
 @media (max-width: 769px) {
 	header nav #menu-icon {
 		display: block !important;
@@ -93,7 +97,7 @@ header nav ul li a:hover {
 
 /*Start The Landing*/
 section.landing {
-	min-height: calc(100vh - 120px);
+	min-height: calc(100vh - 97px);
 }
 
 section.landing .container {
@@ -144,3 +148,109 @@ section.landing img {
 	min-width: 200px;
 }
 /*End The Landing*/
+
+/*Start Tasks Page Aside*/
+main {
+	min-height: 100vh;
+}
+
+main aside .pages span {
+	color: var(--dark);
+	font-size: 1.1rem;
+	transition: var(--transition-delay) ease color;
+}
+
+main aside .pages span:hover {
+	color: var(--main-color);
+}
+
+main aside .pages span.active {
+	color: var(--main-color);
+}
+
+main aside .pages i {
+	margin-right: 10px;
+}
+/*End Tasks Page Aside*/
+
+/*Start Tasks Page Section*/
+main section.tasks-section .section-title::after {
+	content: "";
+	background-color: var(--main-color);
+	position: absolute;
+	transition: var(--transition-delay) ease all;
+	bottom: 0px;
+	left: 50%;
+	transform: translateX(-50%);
+	height: 2px;
+	width: 0%;
+}
+
+main section.tasks-section .section-title:hover::after{
+	width: 100%;
+}
+
+main section.tasks-section .section-title h1 {
+	color: var(--main-color);
+}
+
+main section.tasks-section .tasks-list .task {
+	width: 100%;
+}
+
+main section.tasks-section .tasks-list .finished {
+	background-color: #C8E4D6;
+}
+
+main section.tasks-section .tasks-list .pending {
+	background-color: #FDDFCD;
+}
+
+main section.tasks-section .tasks-list .canceled {
+	background-color: #F4CBCB;
+}
+
+main section.tasks-section .tasks-list .task > span {
+	height: 10px;
+	width: 10px;
+	border-radius: 50%;
+}
+
+main section.tasks-section .tasks-list .finished > span {
+	background-color: var(--main-color);
+}
+
+main section.tasks-section .tasks-list .pending > span {
+	background-color: #FF914D;
+}
+
+main section.tasks-section .tasks-list .canceled > span {
+	background-color: #FF3131;
+}
+
+main section.tasks-section .tasks-list .finished .task-info span > span {
+	color: var(--main-color);
+}
+
+main section.tasks-section .tasks-list .pending .task-info span > span {
+	color: #FF914D;
+}
+
+main section.tasks-section .tasks-list .canceled .task-info span > span {
+	color: #FF3131;
+}
+
+main section.tasks-section .add-task {
+	color: white;
+	background-color: var(--main-color);
+	bottom: 40px;
+	right: 40px;
+	border-radius: 50%;
+	cursor: pointer;
+	transition: 1s ease all;
+}
+
+main section.tasks-section .add-task:hover {
+	transform: rotate(360deg);
+}
+/*End Tasks Page Section*/

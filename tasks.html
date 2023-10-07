@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Tasks - Page</title>
+	<!-- Css Main File  -->
+	<link rel="stylesheet" type="text/css" href="css/stylesheet.css">
+	<!-- Normalize Css File -->
+	<link rel="stylesheet" type="text/css" href="css/normalize.css">
+	<!-- Uploading The Main Font -->
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hammersmith+One&display=swap" rel="stylesheet">
+	<!-- Font Awesome -->
+	<script src="https://kit.fontawesome.com/43b978cfd6.js" crossorigin="anonymous"></script>
+	<!-- Tailwind CSS -->
+	<script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+	<main class="w-full flex items-stretch justify-start">
+		<!-- Start Aside -->
+		<aside class="py-7 px-12 shadow-lg">
+			<img src="images/index/logo.webp" alt="isDone Logo" width="120px" height="auto">
+			<div class="pages flex flex-col gap-5 mt-10">
+				<span class="active">
+					<a href="profile.html">
+						<i class="fa-solid fa-list-check"></i>
+						Tasks
+					</a>
+				</span>
+				<span>
+					<a href="tasks.html">
+					    <i class="fa-solid fa-user"></i>
+						Profile
+					</a>
+				</span>
+			</div>
+		</aside>
+		<!-- End Aside -->
+		<!-- Start Tasks Page -->
+		<section class="tasks-section py-7 px-10 w-full">
+			<div class="section-title relative w-max">
+				<h1 class="text-3xl relative">Tasks</h1>
+			</div>
+			<div class="tasks-list mt-10">
+				<!-- <div class="task finished flex items-center justify-between py-4 px-6">
+					<div class="task-info">
+						<h2 class="text-lg">Finishing Work</h2>
+						<span class="text-sm">
+							Type :
+							<span>
+								Work
+							</span>
+						</span>
+					</div>
+					<span class="task-status"></span>
+				</div> -->
+			</div>
+			<div class="add-task absolute p-5 flex items-center justify-center">
+				<i class="fa-solid fa-plus"></i>
+			</div>
+		</section>
+		<!-- End Tasks Page -->
+	</main>
+	<script type="text/javascript" src="script.js"></script>
+</body>
+</html>
