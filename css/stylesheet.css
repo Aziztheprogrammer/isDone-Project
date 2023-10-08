@@ -181,7 +181,7 @@ main > div.links > span:hover {
 	background-color: var(--dark);
 }
 
-body::after { /* Logo For Small Screens */
+main::after { /* Logo For Small Screens */
 	content: "";
     background: url(../images/index/logo.webp) no-repeat;
     background-size: auto 30px;
@@ -193,7 +193,7 @@ body::after { /* Logo For Small Screens */
 }
 
 @media (min-width: 769px) {
-	body::after {
+	main::after {
 		display: none;
 	}
 }
