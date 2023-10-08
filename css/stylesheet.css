@@ -154,6 +154,50 @@ main {
 	min-height: 100vh;
 }
 
+main > div.links {
+	position: absolute;
+	left: 40px;
+	bottom: 40px;
+	color: white;
+	background-color: var(--main-color);
+}
+
+@media (min-width: 769px) {
+	main > div.links {
+		display: none;
+	}
+}
+
+main > div.links > span {
+	cursor: pointer;
+	transition: var(--transition-delay) ease all;
+}
+
+main > div.links > .active {
+	background-color: var(--dark);
+}
+
+main > div.links > span:hover {
+	background-color: var(--dark);
+}
+
+body::after { /* Logo For Small Screens */
+	content: "";
+    background: url(../images/index/logo.webp) no-repeat;
+    background-size: auto 30px;
+    height: 30px;
+    aspect-ratio: 493/148;
+    position: absolute;
+    top: 1.75rem;
+    right: 2.5rem;
+}
+
+@media (min-width: 769px) {
+	body::after {
+		display: none;
+	}
+}
+
 main aside .pages span {
 	color: var(--dark);
 	font-size: 1.1rem;
@@ -176,7 +220,7 @@ main aside .pages i {
 /*Start Tasks Page Section*/
 main section.tasks-section .section-title::after {
 	content: "";
-	background-color: var(--main-color);
+	background-color: var(--dark);
 	position: absolute;
 	transition: var(--transition-delay) ease all;
 	bottom: 0px;
@@ -191,7 +235,7 @@ main section.tasks-section .section-title:hover::after{
 }
 
 main section.tasks-section .section-title h1 {
-	color: var(--main-color);
+	color: var(--dark);
 }
 
 main section.tasks-section .tasks-list .task {
