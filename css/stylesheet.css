@@ -297,4 +297,97 @@ main section.tasks-section .add-task {
 main section.tasks-section .add-task:hover {
 	transform: rotate(360deg);
 }
+/*Start Create Task Popup*/
+main > .task-pop {
+	display: none;
+	width: 400px;
+	color: white;
+	padding: 20px;
+	background-color: var(--dark);
+	position: absolute;
+	border-radius: 5px;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	animation: 1s ease;
+}
+
+@media (max-width: 769px) {
+	main > .task-pop {
+		max-width: 80%;
+	}
+}
+
+@keyframes popup-opacity {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
+main > .task-pop::after {
+	content: "X";
+	font-size: 1rem;
+	height: 20px;
+	width: 20px;
+	background-color: white;
+	color: var(--dark);
+	position: absolute;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border-radius: 50%;
+	top: 20px;
+	right: 20px;
+	transition: var(--transition-delay) ease all;
+}
+
+main > .task-pop > input {
+	font-size: 0.8rem;
+	display: block;
+	padding: 8px;
+	color: var(--main-color);
+}
+
+main > .task-pop > label {
+	display: block;
+	margin-bottom: -15px;
+}
+
+main > .task-pop .task-type > input {
+	appearance: none;
+	display: block;
+}
+
+main > .task-pop .task-type > label {
+	background-color: white;
+	text-align: center;
+	color: var(--dark);
+	display: inline-block;
+	width: 80px;
+	padding: 10px 0px;
+	transition: var(--transition-delay) ease all;
+	cursor: pointer;
+	width: 100%;
+}
+
+main > .task-pop .task-type > label:hover {
+	background-color: var(--main-color);
+	color: white;
+}
+
+main > .task-pop .task-type > input:checked + label {
+	background-color: var(--main-color);
+	color: white;
+}
+
+main > .task-pop button {
+	background-color: #ddd;
+	color: var(--dark);
+	padding: 5px;
+	cursor: no-drop;
+}
+/*End Create Task Popup*/
 /*End Tasks Page Section*/

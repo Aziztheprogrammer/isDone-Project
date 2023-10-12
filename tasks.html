@@ -72,6 +72,22 @@
 			</div>
 		</section>
 		<!-- End Tasks Page -->
+		<!-- Start Create Task Popup -->
+		<div class="task-pop flex flex-col items-stretch gap-5">
+			<span>Create A New Task :</span>
+			<label for="task-name">Task Name :</label>
+			<input type="text" name="task-name" id="task-name">
+			<div class="task-type mt-2 flex flex-col items-center gap-1">
+				<input type="radio" name="type" id="personal-type">
+				<label for="personal-type">Personal</label>
+				<input type="radio" name="type" id="work-type">
+				<label for="work-type">Work</label>
+				<input type="radio" name="type" id="family-type">
+				<label for="family-type">Family</label>
+			</div>
+			<button>Create The Task</button>
+		</div>
+		<!-- End Create Task Popup -->
 	</main>
 	<script type="text/javascript" src="script.js"></script>
 </body>
