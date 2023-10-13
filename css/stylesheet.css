@@ -291,12 +291,14 @@ main section.tasks-section .add-task {
 	right: 40px;
 	border-radius: 50%;
 	cursor: pointer;
-	transition: 1s ease all;
+	transition: var(--transition-delay) ease all;
 }
 
-main section.tasks-section .add-task:hover {
-	transform: rotate(360deg);
+main section.tasks-section .true {
+	background-color: red;
+	transform: rotate(45deg);
 }
+
 /*Start Create Task Popup*/
 main > .task-pop {
 	display: none;
@@ -309,7 +311,7 @@ main > .task-pop {
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	animation: 1s ease;
+	animation: 1s ease popup-opacity-open;
 }
 
 @media (max-width: 769px) {
@@ -318,7 +320,7 @@ main > .task-pop {
 	}
 }
 
-@keyframes popup-opacity {
+@keyframes popup-opacity-open {
 	0% {
 		opacity: 0;
 	}
@@ -327,21 +329,13 @@ main > .task-pop {
 	}
 }
 
-main > .task-pop::after {
-	content: "X";
-	font-size: 1rem;
-	height: 20px;
-	width: 20px;
-	background-color: white;
-	color: var(--dark);
-	position: absolute;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	border-radius: 50%;
-	top: 20px;
-	right: 20px;
-	transition: var(--transition-delay) ease all;
+@keyframes popup-opacity-close {
+	0% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
 }
 
 main > .task-pop > input {
@@ -388,6 +382,7 @@ main > .task-pop button {
 	color: var(--dark);
 	padding: 5px;
 	cursor: no-drop;
+	transition: var(--transition-delay) ease all;
 }
 /*End Create Task Popup*/
 /*End Tasks Page Section*/
