@@ -240,6 +240,20 @@ main section.tasks-section .section-title h1 {
 
 main section.tasks-section .tasks-list .task {
 	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 12px 16px;
+}
+
+main section.tasks-section .tasks-list .task > .task-info > h2 {
+	font-size: 1.125rem;	
+	line-height: 1.75rem; 
+}
+
+main section.tasks-section .tasks-list .task > .task-info > span {
+	font-size: 0.875rem;
+	line-height: 1.25rem
 }
 
 main section.tasks-section .tasks-list .finished {
@@ -312,6 +326,7 @@ main > .task-pop {
 	left: 50%;
 	transform: translate(-50%, -50%);
 	animation: 1s ease popup-opacity-open;
+	z-index: 5;
 }
 
 @media (max-width: 769px) {
