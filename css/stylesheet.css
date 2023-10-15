@@ -155,7 +155,7 @@ main {
 }
 
 main > div.links {
-	position: absolute;
+	position: fixed;
 	left: 40px;
 	bottom: 40px;
 	color: white;

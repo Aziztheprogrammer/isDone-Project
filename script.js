@@ -47,9 +47,10 @@ popButton.addEventListener("click", function (e) {
 	}
 });
 
-// Activate Create Task Button 
+// Activate Create Task Button
 let taskNameInput = document.querySelector(".task-pop > input");
 let createTaskButton = document.querySelector(".task-pop > button");
+
 taskNameInput.addEventListener("blur", function (e) {
 	if (e.target.value.length >= 4) {
 		createTaskButton.style.cssText = `
@@ -57,17 +58,24 @@ taskNameInput.addEventListener("blur", function (e) {
 			background-color: var(--main-color);
 			color: white;
 		`;
+		createTaskButton.setAttribute("clickable", "");
+		createTaskButton.removeAttribute("not-clickable");
+		createTaskButton.addEventListener("click", function activateButton(e) {
+			closePopup(e.target);
+			window.location.reload();
+		});
+	} else {
+		createTaskButton.removeAttribute("clickable");
+		createTaskButton.setAttribute("not-clickable");
+		createTaskButton.addEventListener("click", function desactivateButton(e) {
+			e.preventDefault();
+		});
 	}
 });
 
-createTaskButton.addEventListener("click", function (e) {
-	closePopup(e.target);
-	window.location.reload();
-})
-
 // Send Task Name And Type To LocalStorage
 class Task {
-	constructor(name, type) {
+	constructor(name, type = "Not Chosen") {
 		this.name = name;
 		this.type = type;
 	}
@@ -90,9 +98,6 @@ let type;
 				break;
 			case "work-type":
 				type = "Work";
-				break;
-			default:
-				type = "Not Chosen";
 			}
 		}
 	});
@@ -101,9 +106,10 @@ let type;
 }
 
 createTaskButton.addEventListener("click", function (e) {
-	localStorage.setItem(`Task ${localStorage.length + 1}`, 
-		JSON.stringify(new Task(taskNameInput.value, taskType())));
-
+	if (this.getAttribute("clickable") == "") {
+		localStorage.setItem(`Task ${localStorage.length + 1}`, 
+			JSON.stringify(new Task(taskNameInput.value, taskType())));
+	}
 });
 
 // Load Tasks
