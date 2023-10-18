@@ -160,6 +160,7 @@ main > div.links {
 	bottom: 40px;
 	color: white;
 	background-color: var(--main-color);
+	z-index: 5;
 }
 
 @media (min-width: 769px) {

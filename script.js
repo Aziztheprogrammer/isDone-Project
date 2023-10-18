@@ -51,7 +51,7 @@ popButton.addEventListener("click", function (e) {
 let taskNameInput = document.querySelector(".task-pop > input");
 let createTaskButton = document.querySelector(".task-pop > button");
 
-taskNameInput.addEventListener("blur", function (e) {
+taskNameInput.addEventListener("input", function (e) {
 	if (e.target.value.length >= 4) {
 		createTaskButton.style.cssText = `
 			cursor: pointer;
@@ -65,6 +65,11 @@ taskNameInput.addEventListener("blur", function (e) {
 			window.location.reload();
 		});
 	} else {
+		createTaskButton.style.cssText = `
+			cursor: no-drop;
+			background-color: #ddd;
+			color: var(--dark);
+		`;
 		createTaskButton.removeAttribute("clickable");
 		createTaskButton.setAttribute("not-clickable");
 		createTaskButton.addEventListener("click", function desactivateButton(e) {
@@ -138,26 +143,25 @@ window.onload = function () {
 		span1.append(taskTypeSpan);
 
 		// Create Finish Task Icon
-		let finishTask = document.createElement("i");
-		finishTask.classList.add("fa-solid", "fa-circle");
-
 		if (task.classList.contains("pending")) {
+			let finishTask = document.createElement("div");
+			finishTask.textContent = "Finish";
+
 			finishTask.style.cssText = `
-				color: #FFFFFF;
-				border: #FF914D 2px solid;
-				border-radius: 50%;
+				padding: 5px 10px;
+				font-size: 14px;
 				cursor: pointer;
+				color: white;
+				background-color: var(--main-color);
 			`;
+
+			task.append(finishTask);
 
 			// Finish A Pending Task
 			finishTask.addEventListener("click", function (e) {
 				window.location.reload();
 				setTimeout(function () {
 					e.target.parentElement.classList.replace("pending", "finished");
-					this.style.cssText = `
-						border: none;
-						color: var(--main-color);
-					`;
 				}, 1000);
 				localStorage.setItem(e.target.parentElement.getAttribute("taskname"), 
 				JSON.stringify(new Task(JSON.parse(localStorage.getItem(e.target.parentElement.getAttribute("taskname"))).name, 
@@ -165,15 +169,18 @@ window.onload = function () {
 			});
 
 			// Create Cancel Button For Pending Tasks
-			var cancelTask = document.createElement("i");
-			cancelTask.classList.add("fa-solid", "fa-ban");
+			var cancelTask = document.createElement("div");
+			cancelTask.textContent = "Cancel";
 			cancelTask.style.cssText = `
-				font-size: 18px;
-				color: #FF3131;
+				padding: 5px 10px;
+				font-size: 14px;
+				cursor: pointer;
+				color: white;
 				position: absolute;
-				right: 50px;
+				right: 80px;
 				top: 50%;
 				transform: translateY(-50%);
+				background-color: #FF3131;
 			`;
 
 			// Cancel A Pending Task
@@ -181,10 +188,6 @@ window.onload = function () {
 				window.location.reload();
 				setTimeout(function () {
 					e.target.parentElement.classList.replace("pending", "canceled");
-					this.style.cssText = `
-						border: none;
-						color: #FF3131;
-					`;
 				}, 1000);
 
 				localStorage.setItem(e.target.parentElement.getAttribute("taskname"), 
@@ -194,41 +197,15 @@ window.onload = function () {
 
 			task.append(cancelTask);
 
-		} else if (task.classList.contains("finished")) {
-			finishTask.style.cssText = `
-				border-radius: 50%;
-				cursor: default;
-				border: none;
-				color: var(--main-color);
-			`;
-		} else if (task.classList.contains("canceled")) {
-			finishTask.style.cssText = `
-				border-radius: 50%;
-				cursor: default;
-				border: none;
-				color: #FF3131;
-			`;
 		}
 
 		// Create The Full Task
-		task.append(taskInfo);
-		task.append(finishTask);
+		task.prepend(taskInfo);
 
 		// Append The Task To The List
 		tasksList.append(task);
 	}
 };
-
-// Create Focus Effect On Tasks 
-let pendingTasks = document.getElementsByClassName("pending");
-let finishedTasks = document.getElementsByClassName("finished");
-let canceledTasks = document.getElementsByClassName("canceled");
-
-console.log(pendingTasks);
-
-Array.from(pendingTasks).forEach(function (task) {
-	console.log(task.nodeName);
-});
 
 
 
