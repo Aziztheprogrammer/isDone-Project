@@ -126,7 +126,7 @@ window.onload = function () {
 	for (let i = 0; i < localStorage.length; i++) {
 		// Create Parent Task Div
 		let task = document.createElement("div");
-		task.setAttribute("taskname", `Task ${i + 1}`);
+		task.setAttribute("taskname", `${localStorage.key(i)}`);
 		task.classList.add("task", JSON.parse(localStorage.getItem(task.getAttribute("taskname"))).status);
 
 		// Create Task Info Div (Name + Type)
@@ -206,6 +206,22 @@ window.onload = function () {
 		tasksList.append(task);
 	}
 };
+
+// Delete Finished And Canceled Tasks
+let deleteTasksBtn = document.querySelector(".delete-tasks");
+
+deleteTasksBtn.addEventListener("click", function (e) {
+	let tasks = document.getElementsByClassName("task");
+	Array.from(tasks).forEach(function (task) {
+		if (JSON.parse(localStorage.getItem(task.getAttribute("taskname"))).status == "finished") {
+			localStorage.removeItem(task.getAttribute("taskname"));
+		} else if (JSON.parse(localStorage.getItem(task.getAttribute("taskname"))).status == "canceled") {
+			localStorage.removeItem(task.getAttribute("taskname"));
+		}
+
+		window.location.reload();
+	});
+});
 
 
 

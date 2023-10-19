@@ -315,6 +315,15 @@ main section.tasks-section .true {
 	transform: rotate(45deg);
 }
 
+main section.tasks-section .delete-tasks {
+	color: white;
+	background-color: red;
+	bottom: 40px;
+	right: 110px;
+	border-radius: 50%;
+	cursor: pointer;
+}
+
 /*Start Create Task Popup*/
 main > .task-pop {
 	display: none;
