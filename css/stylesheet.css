@@ -403,3 +403,41 @@ main > .task-pop button {
 }
 /*End Create Task Popup*/
 /*End Tasks Page Section*/
+
+/*Start Developed By Page*/
+div.card {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	max-width: 450px;
+}
+
+div.card .info > span {
+	width: 2px;
+	height: 30px;
+	background-color: #000;
+}
+
+div.card .info > div > p {
+	color: var(--main-color);
+}
+
+div.card .social a {
+	transition: var(--transition-delay) ease all;
+}
+
+div.card .social a:hover {
+	color: var(--main-color);
+}
+
+@media (max-width: 769px) {
+	div.card {
+		min-width: 300px;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+	}
+}
+
+/*End Developed By Page*/
