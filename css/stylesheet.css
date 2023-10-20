@@ -450,3 +450,42 @@ div.card .social a:hover {
 }
 
 /*End Developed By Page*/
+
+/*Start Why Us Page*/
+div.why-us {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	overflow: hidden;
+}
+
+div.why-us .text > h1 {
+	color: var(--main-color);
+	margin-bottom: 20px;
+}
+
+div.why-us .text > ul li {
+	line-height: 2.5;
+}
+
+div.why-us .text > ul li i {
+	color: var(--main-color);
+}
+
+div.why-us > img {
+	max-height: 300px;
+	width: auto;
+}
+
+@media (max-width: 769px) {
+	div.why-us {
+		flex-direction: column;
+		width: 300px;
+	}
+
+	div.why-us > img {
+		display: none;
+	}
+} 
+/*End Why Us Page*/
