@@ -1,25 +1,28 @@
-// // Burger Menu Close / Open
-// let menuIcon = document.getElementById("menu-icon");
-// let links = document.querySelector("header .container nav ul");
-// let closeMenuIcon = document.getElementById("close-menu-icon");
+// Burger Menu Close / Open
+let menuIcon = document.getElementById("menu-icon");
+let links = document.querySelector("header .container nav ul");
+let closeMenuIcon = document.getElementById("close-menu-icon");
 
-// menuIcon.addEventListener("click", function (i) {
-// 	links.style.display = "flex";
-// 	closeMenuIcon.style.display = "block";
-// }); // Open
+if (links) {
+	menuIcon.addEventListener("click", function (i) {
+		links.style.display = "flex";
+		closeMenuIcon.style.display = "block";
+	}); // Open
 
-// closeMenuIcon.addEventListener("click", function (i) {
-// 	links.style.display = "none";
-// 	closeMenuIcon.style.display = "none";
-// }); // Close
-
-window.addEventListener("resize", function (e) {
-	if (window.innerWidth <= 769) {
+	closeMenuIcon.addEventListener("click", function (i) {
 		links.style.display = "none";
-	} else {
-		links.style.display = "flex"
-	}
-});
+		closeMenuIcon.style.display = "none";
+	}); // Close
+
+	window.addEventListener("resize", function (e) {
+		if (window.innerWidth <= 769) {
+			links.style.display = "none";
+		} else {
+			links.style.display = "flex"
+		}
+	});
+}
+
 
 // Create New Task Popup
 let popButton = document.querySelector("div.add-task");
@@ -145,7 +148,7 @@ window.onload = function () {
 		// Create Finish Task Icon
 		if (task.classList.contains("pending")) {
 			let finishTask = document.createElement("div");
-			finishTask.textContent = "Finish";
+			finishTask.classList.add("fa-solid", "fa-check");
 
 			finishTask.style.cssText = `
 				padding: 5px 10px;
@@ -170,14 +173,15 @@ window.onload = function () {
 
 			// Create Cancel Button For Pending Tasks
 			var cancelTask = document.createElement("div");
-			cancelTask.textContent = "Cancel";
+			cancelTask.classList.add("fa-solid", "fa-xmark");
+
 			cancelTask.style.cssText = `
 				padding: 5px 10px;
 				font-size: 14px;
 				cursor: pointer;
 				color: white;
 				position: absolute;
-				right: 80px;
+				right: 60px;
 				top: 50%;
 				transform: translateY(-50%);
 				background-color: #FF3131;

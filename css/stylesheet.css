@@ -184,7 +184,7 @@ main > div.links > span:hover {
 
 main::after { /* Logo For Small Screens */
 	content: "";
-    background: url(../images/index/logo.webp) no-repeat;
+    background: url(../images/logo.webp) no-repeat;
     background-size: auto 30px;
     height: 30px;
     aspect-ratio: 493/148;
